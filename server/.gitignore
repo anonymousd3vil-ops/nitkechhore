@@ -1,0 +1,5 @@
+.env
+README.md
+*.png
+node_modules
+*.jpg   
