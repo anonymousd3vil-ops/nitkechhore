@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Footer from "../components/footer";
 
 function MainLayout({children}) {
@@ -5,7 +6,7 @@ function MainLayout({children}) {
         <div>
             <div className="navbar bg-base-100 shadow-sm p-5 flex-col md:flex-row">
                 <div className="flex-1">
-                    <a className="btn btn-ghost text-xl rounded-lg">nitkechhore</a>
+                    <Link to={"/"} className="btn btn-ghost text-xl rounded-lg">nitkechhore</Link>
                 </div>
                 <div className="flex gap-2">
                     <input type="text" placeholder="Search" className="input w-24 md:w-auto border rounded-lg" />
