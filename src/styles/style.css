@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
 @import "tailwindcss";
 
 @plugin "daisyui" {
   themes: false;
+}
+
+
+@theme {
+  --font-primary: "Space Grotesk", sans-serif;
+  --font-secondary: "Inter", sans-serif;
 }
 
 @plugin "daisyui/theme" {
@@ -10,24 +17,24 @@
   prefersdark: false;
 
   --color-primary: #2F7F8A;
-  --color-primary-content: #ffffff;
+  --color-primary-content: #FFFFFF;
 
-  --color-secondary: #13B38B;
-  --color-secondary-content: #ffffff;
+  --color-secondary: #14B8A6;
+  --color-secondary-content: #FFFFFF;
 
-  --color-accent: #B99376;
-  --color-accent-content: #ffffff;
+  --color-accent: #F59E0B;
+  --color-accent-content: #FFFFFF;
 
-  --color-neutral: #1E2430;
-  --color-neutral-content: #ffffff;
+  --color-neutral: #1E293B;
+  --color-neutral-content: #FFFFFF;
 
-  --color-base-100: #F8F7F2;
-  --color-base-200: #EFECE3;
-  --color-base-300: #E2DDD1;
-  --color-base-content: #1E2430;
+  --color-base-100: #FAFAF9;
+  --color-base-200: #F5F5F4;
+  --color-base-300: #E7E5E4;
+  --color-base-content: #1F2937;
 
-  --color-info: #3ABFF8;
-  --color-success: #36D399;
-  --color-warning: #FBBD23;
-  --color-error: #F87272;
+  --color-info: #3B82F6;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
 }
