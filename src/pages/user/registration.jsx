@@ -154,8 +154,8 @@ function Registration() {
                             {/*Profile Picture */}
                             <label htmlFor="image_uploads" className="cursor-pointer">
                                 {previewImage ? (
-                                    <img  className="w-28 h-28 rounded-full border-4 border-yellow-500 object-cover transition-all duration-300 group-hover:scale-105 m-auto" src={previewImage}/>
-                                ) : <BsPersonCircle className="w-28 h-28 text-yellow-400 transition-all duration-300 group-hover:scale-150 rounded-full m-auto"/>}
+                                    <img  className="w-28 h-28 rounded-full border-4 border-primary object-cover transition-all duration-300 group-hover:scale-105 m-auto" src={previewImage}/>
+                                ) : <BsPersonCircle className="w-28 h-28 text-primary mb-3 transition-all duration-300 group-hover:scale-150 rounded-full m-auto"/>}
                             </label>
                             <input 
                                 type="file" 
