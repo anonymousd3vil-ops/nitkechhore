@@ -1,6 +1,8 @@
 import MainLayout from "../layout/mainLayout";
 import profilePic from "../assets/profilepic.jpeg";
-
+import { developers, memberDetails } from "../constants/memberArray";
+import MemberCard from "../components/memberCard";
+import DeveloperCard from "../components/developersCard";
 
 function AboutUs(){
     return (
@@ -27,34 +29,7 @@ function AboutUs(){
                                 🚀 Lazy Society Members
                             </h2>
                             <div className="space-y-3">
-                                {[
-                                    "Vivek",
-                                    "Shivank",
-                                    "Aditya",
-                                    "Anuj",
-                                    "Aakash",
-                                    "Anugrah",
-                                    "Shoham",
-                                ].map((member) => (
-                                    <div
-                                        key={member}
-                                        className="flex items-center justify-between bg-base-100 rounded-xl p-3 hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer"
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar placeholder">
-                                                <div className="bg-secondary text-secondary-content rounded-full w-10">
-                                                    <img src="" alt="NotFound" />
-                                                </div>
-                                            </div>
-                                            <span className="font-medium text-lg">
-                                                {member}
-                                            </span>
-                                        </div>
-                                        <div className="badge badge-primary rounded-lg">
-                                            Member
-                                        </div>
-                                    </div>
-                                ))}
+                                {memberDetails.map((member) => <MemberCard key={member.name} name={member.name} profilePic={member.profilePic} memberTag={member.memberTag}/>)}
                             </div>
                         </div>
                     </div>
@@ -66,30 +41,7 @@ function AboutUs(){
                                 💻 Developers
                             </h2>
                             <div className="space-y-3">
-                                {[
-                                    "Vivek"
-                                ].map((developer) => (
-                                    <div
-                                        key={developer}
-                                        className="flex items-center justify-between bg-base-100 rounded-xl p-3 hover:bg-secondary hover:text-white transition-all duration-300 cursor-pointer"
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar placeholder">
-                                                <div className="bg-primary text-primary-content rounded-full w-10">
-                                                    <div className="bg-secondary text-secondary-content rounded-full w-10">
-                                                        <img src="" alt="NotFound" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <span className="font-medium text-lg">
-                                                {developer}
-                                            </span>
-                                        </div>
-                                        <div className="badge badge-secondary">
-                                            Lead Developer
-                                        </div>
-                                    </div>
-                                ))}
+                                {developers.map((developer) => <DeveloperCard key={developer.name} name={developer.name} profilePic={developer.profilePic} tag={developer.tag} />)}
                             </div>
                         </div>
                     </div>
