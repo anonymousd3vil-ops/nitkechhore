@@ -34,7 +34,7 @@ export const registerUser = createAsyncThunk('/auth/register', async(data)=>{
             error: (err)=> err?.response?.data?.message|| 'Failed to create account, Try Again!!'
         });
 
-        console.log((await request))
+        // console.log((await request))
 
         const response = await request;
         return response.data;
@@ -42,6 +42,40 @@ export const registerUser = createAsyncThunk('/auth/register', async(data)=>{
         toast.error(err?.response?.data?.message);
     }
 });
+
+export const login = createAsyncThunk('/auth/login', async(data) => {
+    try{
+        const request = API.post('/user/login', data);
+        toast.promise(request, {
+            loading: "Loging In, Please Wait...",
+            success: (data) => data?.data?.message || 'Login Successfull!!',
+            error: (err) => err?.response?.data?.message || 'Failed to Login!!'
+        });
+
+        const response = await request;
+        return response.data;
+
+    }catch(err){
+        toast.error(err?.response?.data?.message);
+    }
+})
+
+export const logout = createAsyncThunk('/auth/logout', async() => {
+    try{
+        const request = API.get('/user/logout');
+        toast.promise(request, {
+            loading: "Please Wait, Logout in Process...",
+            success: (data) => data?.data?.message || 'Logout Successfull!!',
+            error: (err) => err?.response?.data?.message || 'Failed to Logout!!'
+        });
+
+        const response = await request;
+        return response.data;
+    }
+    catch(err){
+        toast.error(err?.response?.data?.message);
+    }
+})
 
 const userAuthSlice = createSlice({
     name: 'auth',
@@ -51,13 +85,12 @@ const userAuthSlice = createSlice({
         builder
         .addCase(registerUser.pending, (state)=>{
                 state.loading = true;
-            }
-        )
+        })
         .addCase(registerUser.fulfilled, (state, action) => {
             state.loading = false;
             state.isLoggedin = true;
 
-            console.log(action.payload);
+            // console.log(action.payload);
 
             state.data = action.payload.user;
 
@@ -68,7 +101,37 @@ const userAuthSlice = createSlice({
         .addCase(registerUser.rejected, (state) => {
             state.loading = false;  
             toast.error("Registration Failed");
-        });
+        })
+        .addCase(login.pending, (state) => {
+            state.loading = true;
+        })
+        .addCase(login.fulfilled, (state, action) => {
+            state.loading = false;
+            state.isLoggedin = true;
+
+            state.data = action.payload.user;
+
+            localStorage.setItem(USER_KEY, JSON.stringify(state.data));
+            localStorage.setItem(LOGIN_KEY, "true");
+        })
+        .addCase(login.rejected, (state) => {
+            state.loading = false;
+            toast.error("Login Failed")
+        })
+        .addCase(logout.pending, (state) => {
+            state.loading = true;
+        })
+        .addCase(logout.fulfilled, (state) => {
+            state.loading = false;
+            state.isLoggedin = false;
+
+            state.data = {};
+            localStorage.clear();
+        })
+        .addCase(logout.rejected, (state) => {
+            state.loading = false;
+            toast.error("Logout Failed!!")
+        })
     },
 });
 

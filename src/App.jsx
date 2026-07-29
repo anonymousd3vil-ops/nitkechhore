@@ -3,6 +3,7 @@ import HomePage from './pages/homePage.jsx'
 import AboutUs from './pages/aboutUs.jsx'
 import ContactUs from './pages/contactus.jsx'
 import Registration from './pages/user/registration.jsx'
+import Login from './pages/user/login.jsx'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path='/contact' element={<ContactUs />}></Route>
 
         <Route path='/user/register' element={<Registration />}></Route>
+        <Route path='/user/login' element={<Login />}></Route>
       </Routes>
     </>
   )
