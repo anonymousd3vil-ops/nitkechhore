@@ -1,0 +1,1 @@
+export const commonHoverEffect = "relative font-secondary before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:origin-right before:scale-x-0 before:bg-[#2f7f8a] before:transition-transform before:duration-300 before:ease-in-out hover:before:origin-left hover:before:scale-x-100";

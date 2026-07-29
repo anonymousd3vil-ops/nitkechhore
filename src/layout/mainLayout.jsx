@@ -1,12 +1,21 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/footer";
+import { commonHoverEffect } from "../styles/commonStyles.js";
 
 function MainLayout({children}) {
     return (
         <div>
             <div className="navbar bg-base-100 shadow-sm p-5 flex-col md:flex-row">
                 <div className="flex-1">
-                    <Link to={"/"} className="btn btn-ghost text-xl rounded-lg">nitkechhore</Link>
+                    <Link to={"/"} className="btn btn-ghost text-3xl rounded-lg font-primary">nitkechhore</Link>
+                </div>
+                <div className="hidden md:block w-full">
+                    <div className="flex items-center justify-center gap-5 font-secondary text-xl font-bold">
+                       <Link to={'/'} className={commonHoverEffect}>Home</Link> 
+                       <Link to={'/about'} className={commonHoverEffect}>About Us</Link> 
+                       <Link to={'/contact'} className={commonHoverEffect}>Contact Us</Link> 
+                      
+                    </div>
                 </div>
                 <div className="flex gap-2">
                     <input type="text" placeholder="Search" className="input w-24 md:w-auto border rounded-lg" />

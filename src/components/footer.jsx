@@ -2,7 +2,7 @@ import { AiOutlineInstagram } from "react-icons/ai";
 import { MdAlternateEmail } from "react-icons/md";
 import { ImYoutube2 } from "react-icons/im";
 import { Link } from "react-router-dom";
-
+import { commonHoverEffect } from "../styles/commonStyles.js";
 
 function Footer() {
    
@@ -11,29 +11,29 @@ function Footer() {
             <nav className="footer sm:footer-horizontal bg-base-300 text-base-content p-15 flex justify-between  md:flex-row flex-col items-center">
                 <nav>
                     <h6 className="footer-title font-primary ">Services</h6>
-                    <a className="link link-hover font-secondary">Branding</a>
-                    <Link className="link link-hover font-secondary">Design</Link>
-                    <Link className="link link-hover font-secondary">Marketing</Link>
-                    <Link className="link link-hover font-secondary">Advertisement</Link>
+                    <Link className={commonHoverEffect}>Branding</Link>
+                    <Link className={commonHoverEffect}>Design</Link>
+                    <Link className={commonHoverEffect}>Marketing</Link>
+                    <Link className={commonHoverEffect}>Advertisement</Link>
                 </nav>
                 <nav>
                     <h6 className="footer-title font-primary">Company</h6>
-                    <Link to="/about" className="link link-hover font-secondary"> About Us</Link>
-                    <Link to="/contact" className="link link-hover font-secondary"> Contact</Link>
-                    <Link to="/jobs" className="link link-hover font-secondary"> Jobs</Link>
-                    <Link to="/presskit" className="link link-hover font-secondary"> Press Kit</Link>
+                    <Link to="/about" className={commonHoverEffect}> About Us</Link>
+                    <Link to="/contact" className={commonHoverEffect}> Contact</Link>
+                    <Link to="/jobs" className={commonHoverEffect}> Jobs</Link>
+                    <Link to="/presskit" className={commonHoverEffect}> Press Kit</Link>
                 </nav>
                 <nav>
                     <h6 className="footer-title font-primary">Social</h6>
                     <div className="grid grid-flow-col gap-4">
                     <a>
-                        <AiOutlineInstagram className="text-4xl hover:text-blue-500 cursor-pointer transition-all duration-300"/>
+                        <AiOutlineInstagram className="text-4xl hover:text-[#2f7f8a] cursor-pointer transition-all duration-300"/>
                     </a>
                     <a>
-                        <MdAlternateEmail className="text-4xl hover:text-blue-500 cursor-pointer transition-all duration-300"/>
+                        <MdAlternateEmail className="text-4xl hover:text-[#2f7f8a] cursor-pointer transition-all duration-300"/>
                     </a>
                     <a>
-                        <ImYoutube2 className="text-4xl hover:text-blue-500 cursor-pointer transition-all duration-300"/>
+                        <ImYoutube2 className="text-4xl hover:text-[#2f7f8a] cursor-pointer transition-all duration-300"/>
                     </a>
                     </div>
                 </nav>
