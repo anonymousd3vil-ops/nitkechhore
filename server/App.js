@@ -1,11 +1,16 @@
+/* eslint-disable no-undef */
+
 //libraries
 import express from 'express';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
+import cors from 'cors'
 
 
 //comonents
 import userRouter from './routers/userRouters.js';
+import errorMiddleware from './middlewares/errorMiddleware.js';
 
 dotenv.config()
 
@@ -15,6 +20,11 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); //it decodes to get query params
+app.use(cookieParser())
+app.use(cors({
+    origin: [process.env.FRONTEND_URL],
+    credentials: true
+}))
 
 app.use('/api/user', userRouter);
 
@@ -25,5 +35,7 @@ app.use('/ping', (req, res) => {
 app.all('/{*splat}', (req, res) => {
     res.status(404).send("OOPS!!, Error 404, Page Not Found!!");
 });
+
+app.use(errorMiddleware);
 
 export default app;
