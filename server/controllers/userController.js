@@ -85,4 +85,37 @@ const register = async (req, res, next) => {
     }
 };
 
-export {register}
+const login = async(req, res, next) => {
+    try{
+        const {email, password} = req.body;
+
+        if(!email || !password){
+            return next(new AppError("Email and Password is required to Login.", 400));
+        }
+
+        const user = await User.findOne({email}).select('+password');
+
+        if(!user || !(await user.comaparePassword(password))){
+            return next(new AppError("Incorrect Email or Password, Try Again!"));
+        }
+
+        const token = await user.generateJWToken();
+        user.password = undefined;
+
+        res.cookie("token", token, cookieOptions);
+
+        res.status(200).json({
+            success: true,
+            message: 'User Login Successfull.',
+            user
+        });
+    }catch(err){
+        console.log("Error While Logging In!!")
+        return next(new AppError(err.message, 500));
+    }
+}
+
+export {
+    register,
+    login
+}
