@@ -3,11 +3,15 @@ import { GoDotFill } from "react-icons/go";
 import { SiWpexplorer } from "react-icons/si";
 import { TypeAnimation } from "react-type-animation";
 
-import { FeaturesCardArray, categories } from "../constants/CardArrays.js";
+import { FeaturesCardArray, categories } from "../constants/CardArrays.jsx";
 
 import { Categories, FeatureCard } from "../components/featureCard.jsx";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function HomePage(){
+    const navigate = useNavigate();
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedin);
     return (
         <MainLayout>
             <div className="min-h-screen px-6 md:px-20 py-20">
@@ -66,9 +70,12 @@ function HomePage(){
                             <SiWpexplorer className="text-2xl"/> Explore
                         </button>
 
-                        <button className="btn btn-outline btn-secondary btn-lg rounded-xl">
-                            Join Community
-                        </button>
+                        {
+                            !isLoggedIn &&
+                                <button onClick={() => navigate('/user/register')} className="btn btn-outline btn-secondary btn-lg rounded-xl">
+                                    Join Community
+                                </button>
+                        }
 
                     </div>
 
@@ -77,32 +84,25 @@ function HomePage(){
 
 
                 {/* Feature Section */}
-
                 <section className="mt-24">
-
                     <div className="text-center">
-
                         <h2 className="text-4xl md:text-5xl font-bold">
                             Why Choose
                             <span className="text-primary">
                                 {" "}NitKeChhore?
                             </span>
                         </h2>
-
                         <p className="mt-3 text-base-content/70 text-lg">
                             Everything curated specially for Engineering Students.
                         </p>
-
                     </div>
-
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 justify-items-center">
-
                         {FeaturesCardArray.map((feature) => (
                             <FeatureCard
-                                key={feature[0]}
-                                topic={feature[0]}
-                                tagline={feature[1]}
-                                icon={feature[2]}
+                                key={feature.title}
+                                topic={feature.title}
+                                tagline={feature.tagline}
+                                icon={feature.icon}
                             />
                         ))}
 
@@ -132,9 +132,9 @@ function HomePage(){
 
                         {categories.map((category) => (
                             <Categories
-                                key={category[0]}
-                                topic={category[0]}
-                                icon={category[1]}
+                                key={category.title}
+                                topic={category.title}
+                                icon={category.icon}
                             />
                         ))}
 
