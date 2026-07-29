@@ -109,6 +109,7 @@ const login = async(req, res, next) => {
             message: 'User Login Successfull.',
             user
         });
+
     }catch(err){
         console.log("Error While Logging In!!")
         return next(new AppError(err.message, 500));
