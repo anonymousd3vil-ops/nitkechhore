@@ -3,7 +3,7 @@ import { MdVerified } from "react-icons/md";
 import { IoBookSharp, IoCodeSlashSharp } from "react-icons/io5";
 import { FaUserFriends } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsPersonCircle } from "react-icons/bs";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -238,9 +238,11 @@ function Registration() {
 
                             <p className="text-center text-sm mt-5">
                                 Already have an account?{" "}
-                                <span className="text-primary font-semibold cursor-pointer hover:underline">
-                                    Login
-                                </span>
+                                <Link to={'/user/login'}>
+                                    <span className="text-primary font-semibold cursor-pointer hover:underline">
+                                        Login
+                                    </span>
+                                </Link>
                             </p>
                         </form>
                     </div>
