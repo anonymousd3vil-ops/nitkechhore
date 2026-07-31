@@ -4,6 +4,7 @@ import AboutUs from './pages/aboutUs.jsx'
 import ContactUs from './pages/contactus.jsx'
 import Registration from './pages/user/registration.jsx'
 import Login from './pages/user/login.jsx'
+import NotFound from './pages/notFound.jsx'
 
 function App() {
 
@@ -16,6 +17,9 @@ function App() {
 
         <Route path='/user/register' element={<Registration />}></Route>
         <Route path='/user/login' element={<Login />}></Route>
+
+        <Route path='*' element={<NotFound />}></Route>
+
       </Routes>
     </>
   )
