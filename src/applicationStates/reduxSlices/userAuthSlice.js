@@ -4,7 +4,8 @@ import toast from "react-hot-toast";
 
 
 const USER_KEY = 'NITKeChhore_user';
-const LOGIN_KEY = 'NITKeChhore_isLoggedIn'
+const LOGIN_KEY = 'NITKeChhore_isLoggedIn';
+const USER_ROLE = 'role';
 
 function getStoredUserData(){
     const userData = localStorage.getItem(USER_KEY);
@@ -22,6 +23,7 @@ function getStoredUserData(){
 const initialState = {
     loading: false,
     isLoggedin: localStorage.getItem(LOGIN_KEY) === 'true',
+    role: localStorage.getItem(USER_ROLE) || '',
     data: getStoredUserData()
 }
 
@@ -93,6 +95,7 @@ const userAuthSlice = createSlice({
             // console.log(action.payload);
 
             state.data = action.payload.user;
+            state.role = action.payload.user.role;
 
             localStorage.setItem(USER_KEY, JSON.stringify(state.data));
 
@@ -110,9 +113,11 @@ const userAuthSlice = createSlice({
             state.isLoggedin = true;
 
             state.data = action.payload.user;
+            state.role = action.payload.user.role;
 
             localStorage.setItem(USER_KEY, JSON.stringify(state.data));
             localStorage.setItem(LOGIN_KEY, "true");
+            localStorage.setItem(USER_ROLE, action.payload.user.role);
         })
         .addCase(login.rejected, (state) => {
             state.loading = false;
@@ -126,6 +131,7 @@ const userAuthSlice = createSlice({
             state.isLoggedin = false;
 
             state.data = {};
+            state.role = ''
             localStorage.clear();
         })
         .addCase(logout.rejected, (state) => {
