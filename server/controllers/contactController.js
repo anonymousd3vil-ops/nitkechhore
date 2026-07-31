@@ -12,7 +12,7 @@ const contactUs = async (req, res, next) => {
         if(queryExists){
             return next(new AppError('Your Query Already Exists, Try With another Email.', 400))
         }
-        console.log("helloo!!");
+        // console.log("helloo!!");
         const query = await ContactUs.create({
             email,
             subject,
@@ -27,8 +27,7 @@ const contactUs = async (req, res, next) => {
 
         res.status(201).json({
             success: true,
-            message: "User registration Successfull!!",
-            query
+            message: "Query Registered Succesfully.",
         });
     }catch(err){
         console.log(`Error in Sending Request: ${err.message}`);
@@ -36,4 +35,21 @@ const contactUs = async (req, res, next) => {
     }
 }
 
-export default contactUs;
+const getQueries = async (req, res, next) => {
+    try{
+        const queries = await ContactUs.find();
+        res.status(201).json({
+            success: true,
+            message: 'All Queries Fetched Successfully.',
+            queries
+        });
+    }catch(err){
+        console.log(err.message);
+        return next(new AppError('Failed to Get Queries', 400));
+    }
+}
+
+export  {
+    contactUs,
+    getQueries,
+}
