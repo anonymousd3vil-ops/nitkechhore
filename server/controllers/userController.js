@@ -129,8 +129,31 @@ const logout = async (req, res) => {
     })
 }
 
+const getProfile = async (req, res, next) => {
+    try{
+        // console.log(req.user);
+        const userId = req.user.id;
+        // console.log(userId);
+        const user = await User.findById(userId);
+
+        // user.forgotPasswordExpiry = undefined;
+        // user.forgotPasswordToken = undefined;
+        res.status(200).json({
+            success: true,
+            message: 'User Ditails',
+            user
+        });
+
+    }catch(err){
+        console.log(err.message)
+        console.log(req?.user?.id)
+        return next(new AppError("Failed to get Profile!!", 500));
+    }
+}
+
 export {
     register,
     login,
-    logout
+    logout,
+    getProfile
 }

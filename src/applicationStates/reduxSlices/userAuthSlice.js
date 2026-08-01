@@ -77,7 +77,23 @@ export const logout = createAsyncThunk('/auth/logout', async() => {
     catch(err){
         toast.error(err?.response?.data?.message);
     }
-})
+});
+
+export const getProfile = createAsyncThunk('/auth/me', async () => {
+    try{
+        const request = API.get('/user/me');
+        toast.promise(request, {
+            loading: "Please Wait, Logout in Process...",
+            success: (data) => data?.data?.message || 'Logout Successfull!!',
+            error: (err) => err?.response?.data?.message || 'Failed to Logout!!'
+        });
+
+        const response = await request;
+        return response.data;
+    }catch(err){
+        toast.error(err?.response?.data?.message);
+    }
+});
 
 const userAuthSlice = createSlice({
     name: 'auth',
@@ -88,7 +104,15 @@ const userAuthSlice = createSlice({
         .addCase(registerUser.pending, (state)=>{
                 state.loading = true;
         })
-        .addCase(registerUser.fulfilled, (state, action) => {
+        .addCase(registerUser.fulfilled, (state)=>{
+                state.loading = false;
+                
+        })
+        .addCase(registerUser.rejected, (state) => {
+            state.loading = false;  
+            toast.error("Registration Failed");
+        })
+        .addCase(getProfile.fulfilled, (state, action) => {
             state.loading = false;
             state.isLoggedin = true;
 
@@ -100,10 +124,6 @@ const userAuthSlice = createSlice({
             localStorage.setItem(USER_KEY, JSON.stringify(state.data));
 
             localStorage.setItem(LOGIN_KEY, "true");
-        })
-        .addCase(registerUser.rejected, (state) => {
-            state.loading = false;  
-            toast.error("Registration Failed");
         })
         .addCase(login.pending, (state) => {
             state.loading = true;
