@@ -11,7 +11,7 @@ function Footer() {
             <nav className="footer sm:footer-horizontal bg-base-300 text-base-content p-15 flex justify-between  md:flex-row flex-col items-center">
                 <nav>
                     <h6 className="footer-title font-primary ">Services</h6>
-                    <Link className={commonHoverEffect}>Branding</Link>
+                    <Link to={'/compiler'} className={commonHoverEffect}>Online Compiler</Link>
                     <Link className={commonHoverEffect}>Design</Link>
                     <Link className={commonHoverEffect}>Marketing</Link>
                     <Link className={commonHoverEffect}>Advertisement</Link>
@@ -20,8 +20,6 @@ function Footer() {
                     <h6 className="footer-title font-primary">Company</h6>
                     <Link to="/about" className={commonHoverEffect}> About Us</Link>
                     <Link to="/contact" className={commonHoverEffect}> Contact</Link>
-                    <Link to="/jobs" className={commonHoverEffect}> Jobs</Link>
-                    <Link to="/presskit" className={commonHoverEffect}> Press Kit</Link>
                 </nav>
                 <nav>
                     <h6 className="footer-title font-primary">Social</h6>
