@@ -12,6 +12,7 @@ import cors from 'cors'
 import userRouter from './routers/userRouters.js';
 import errorMiddleware from './middlewares/errorMiddleware.js';
 import contactRouter from './routers/contactusRouter.js';
+import compilerRoutes from "./routers/compilerRoutes.js";
 
 dotenv.config()
 
@@ -29,6 +30,7 @@ app.use(cors({
 
 app.use('/api/user', userRouter);
 app.use('/api/contact', contactRouter);
+app.use("/api/compiler", compilerRoutes);
 
 app.use('/ping', (req, res) => {
     res.send('Ping Pong Server is Running!!');
