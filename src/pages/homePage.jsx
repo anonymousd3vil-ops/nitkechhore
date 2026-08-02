@@ -37,9 +37,7 @@ function HomePage(){
 
                     <h2 className="mt-12 text-3xl md:text-6xl font-bold max-w-5xl leading-tight font-primary">
                         Everything a
-                        <span className="text-primary"> NIT </span>
-                        &
-                        <span className="text-secondary"> IIT </span>
+                        <span className="text-primary"> Engineering </span>
                         Student Needs,
                         <br />
                         All in One Place.
