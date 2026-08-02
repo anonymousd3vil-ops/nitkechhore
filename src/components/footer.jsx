@@ -8,7 +8,7 @@ function Footer() {
    
     return (
         <footer className="flex flex-col items-center">
-            <nav className="footer sm:footer-horizontal bg-base-300 text-base-content p-15 flex justify-between  md:flex-row flex-col items-center">
+            <nav className="footer sm:footer-horizontal bg-base-300 text-base-content p-15 flex justify-between  md:flex-row flex-col items-start">
                 <nav>
                     <h6 className="footer-title font-primary ">Services</h6>
                     <Link to={'/compiler'} className={commonHoverEffect}>Online Compiler</Link>
