@@ -1,31 +1,6 @@
-/* eslint-disable no-undef */
-import axios from "axios";
+import { getResponse, submitCode } from "../api/compilerAPIs.js";
+import { decodeBase64, LANGUAGE_IDS, sleep } from "../helpers/comiplerHelpers.js";
 // import AppError from "../utils/errorUtils";
-
-const JUDGE0_API_URL = process.env.JUDGE0_API_URL || "https://ce.judge0.com";
-
-const LANGUAGE_IDS = { 
-    c: 50,
-    cpp: 54,
-    python: 71
-};
-
-// Convert normal string → Base64
-const encodeBase64 = (text = "") => {
-    return Buffer.from(text, "utf8").toString("base64");
-};
-
-// Convert Base64 → normal string
-const decodeBase64 = (text) => {
-    if (!text) {
-        return "";
-    }
-    return Buffer.from(text, "base64").toString("utf8");
-};
-
-const sleep = (ms) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-};
 
 export const executeCode = async (req, res) => {
     try {
@@ -59,48 +34,21 @@ export const executeCode = async (req, res) => {
         }
 
         // STEP 1 — CREATE JUDGE0 SUBMISSION
-        const submissionResponse = await axios.post(
-            `${JUDGE0_API_URL}/submissions?base64_encoded=true&wait=false`,
-            {
-                source_code: encodeBase64(code),
-                language_id: languageId,
-                stdin: encodeBase64(stdin),
-                cpu_time_limit: 2,
-                wall_time_limit: 5
-            },
-            {
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                timeout: 10000
-            }
-        );
-
+        const submissionResponse = await submitCode({languageId, code, stdin})
         const token = submissionResponse.data.token;
-
+        
         if (!token) {
             throw new Error("Judge0 did not return a submission token.");
         }
 
         // STEP 2 — WAIT FOR EXECUTION
-
         let result = null;
 
         const MAX_ATTEMPTS = 10;
 
         for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++){
             await sleep(700);
-            const resultResponse = await axios.get(
-                `${JUDGE0_API_URL}/submissions/${token}`,
-                {
-                    params: {
-                        base64_encoded: true,
-                        fields: "stdout,stderr,compile_output,message,status,time,memory,exit_code"
-                    },
-                    timeout: 10000
-                }
-            );
-
+            const resultResponse = await getResponse({token})
             result = resultResponse.data;
 
             // 1 = In Queue
@@ -112,7 +60,6 @@ export const executeCode = async (req, res) => {
         }
 
         // TIMEOUT
-
         if (!result || result.status?.id === 1 || result.status?.id === 2) {
             return res.status(408).json({
                 success: false,
