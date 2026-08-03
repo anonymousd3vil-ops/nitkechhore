@@ -8,6 +8,7 @@ import NotFound from './pages/notFound.jsx'
 import Denied  from './pages/deniedPage.jsx'
 import RequireAuth from './components/auth/requireAuthorization.jsx'
 import Compiler from './pages/compiler.jsx'
+import NotesHomePage from './pages/notes/noteHome.jsx'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
 
         <Route element={<RequireAuth allowedRoles={['USER', 'ADMIN']} />} >
           <Route path='/compiler' element={<Compiler />}> </Route>
+          <Route path='/notes' element={<NotesHomePage />}></Route>
         </Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>

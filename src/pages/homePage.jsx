@@ -104,6 +104,7 @@ function HomePage(){
                                 topic={feature.title}
                                 tagline={feature.tagline}
                                 icon={feature.icon}
+                                next={feature.next}
                             />
                         ))}
 

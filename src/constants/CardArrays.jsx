@@ -11,32 +11,38 @@ export const FeaturesCardArray = [
   {
     title: "Notes",
     tagline: "Semester-wise study material",
-    icon: <GiBookshelf />
+    icon: <GiBookshelf />,
+    next: '/notes'
   },
   {
     title: "Coding",
     tagline: "DSA, Web Development, CP",
-    icon: <IoCodeSlash />
+    icon: <IoCodeSlash />,
+    next: '/coding'
   },
   {
     title: "Projects",
     tagline: "DSA, Web Development, CP",
-    icon: <GrProjects />
+    icon: <GrProjects />,
+    next: '/projects'
   },
   {
     title: "Events",
     tagline: "DSA, Web Development, CP",
-    icon: <MdEvent />
+    icon: <MdEvent />,
+    next: '/events'
   },
   {
     title: "Opportunities",
     tagline: "DSA, Web Development, CP",
-    icon: <GiJusticeStar />
+    icon: <GiJusticeStar />,
+    next: '/opportunitues'
   },
   {
     title: "Community",
     tagline: "DSA, Web Development, CP",
-    icon: <RiUserCommunityLine />
+    icon: <RiUserCommunityLine />,
+    next: '/community'
   }
 ]
 

@@ -1,25 +1,29 @@
-function FeatureCard({ topic, tagline, icon }) {
+import { Link } from "react-router-dom";
+
+function FeatureCard({ topic, tagline, icon, next }) {
     return (
         <div className="card bg-base-200 border border-base-300 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer group w-72">
-            <div className="card-body">
-                <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center mb-3 group-hover:scale-110 transition">
-                    <span className="text-2xl">{icon}</span>
+            <Link to={next}>
+                <div className="card-body">
+                    <div className="w-14 h-14 rounded-xl bg-primary/15 flex items-center justify-center mb-3 group-hover:scale-110 transition">
+                        <span className="text-2xl">{icon}</span>
+                    </div>
+
+                    <h2 className="card-title text-primary text-xl group-hover:text-secondary transition-colors">
+                        {topic}
+                    </h2>
+
+                    <p className="text-base-content/70 leading-relaxed">
+                        {tagline}
+                    </p>
+
+                    <div className="card-actions justify-end mt-3">
+                        <button className="btn btn-primary btn-sm">
+                            Explore →
+                        </button>
+                    </div>
                 </div>
-
-                <h2 className="card-title text-primary text-xl group-hover:text-secondary transition-colors">
-                    {topic}
-                </h2>
-
-                <p className="text-base-content/70 leading-relaxed">
-                    {tagline}
-                </p>
-
-                <div className="card-actions justify-end mt-3">
-                    <button className="btn btn-primary btn-sm">
-                        Explore →
-                    </button>
-                </div>
-            </div>
+            </Link>
         </div>
     );
 }
