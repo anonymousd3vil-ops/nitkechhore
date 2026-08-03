@@ -1,5 +1,5 @@
 import { Router } from "express";
-import upload from "../middlewares/multerMiddleware.js";
+import {upload} from "../middlewares/multerMiddleware.js";
 
 import { login, logout, register, getProfile } from "../controllers/userController.js";
 import { isLoggedin } from "../middlewares/userAuthMiddleware.js";

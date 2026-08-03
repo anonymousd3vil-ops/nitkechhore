@@ -3,7 +3,7 @@
 //libraries
 import express from 'express';
 import morgan from 'morgan';
-import dotenv from 'dotenv';
+import 'dotenv/config';
 import cookieParser from 'cookie-parser';
 import cors from 'cors'
 
@@ -13,8 +13,8 @@ import userRouter from './routers/userRouters.js';
 import errorMiddleware from './middlewares/errorMiddleware.js';
 import contactRouter from './routers/contactusRouter.js';
 import compilerRoutes from "./routers/compilerRoutes.js";
+import notesUploadRougter from './routers/pdfUploadRoutes.js';
 
-dotenv.config()
 
 const app = express();
 
@@ -31,6 +31,7 @@ app.use(cors({
 app.use('/api/user', userRouter);
 app.use('/api/contact', contactRouter);
 app.use("/api/compiler", compilerRoutes);
+app.use("/api/notes", notesUploadRougter);
 
 app.use('/ping', (req, res) => {
     res.send('Ping Pong Server is Running!!');
