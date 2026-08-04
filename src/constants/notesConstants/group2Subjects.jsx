@@ -4,32 +4,32 @@ export const group2Subjects1 = [
     {
       name: "Engineering Mathematics - I",
       icon: <FaCalculator />,
-      page: '/engineeringmaths1'
+      page: '/notes/engineeringmaths1'
     },
     {
       name: "Engineering Physics - I",
       icon: <FaAtom />,
-      page: '/engineeringphy1'
+      page: '/notes/engineeringphy1'
     },
     {
       name: "Engineering Chemistry - I",
       icon: <FaFlask />,
-      page: '/engineeringchem1'
+      page: '/notes/engineeringchem1'
     },
     {
       name: "Introduction to Programming (IP)",
       icon: <FaCode />,
-      page: '/ip'
+      page: '/notes/ip'
     },
     {
       name: "Disaster Management (DSTM)",
       icon: <FaBookOpen />,
-      page: '/dstm'
+      page: '/notes/dstm'
     },
     {
       name: "Basic Electronics (BE)",
       icon: <FaBolt />,
-      page: '/be'
+      page: '/notes/be'
     },
 ];
 
@@ -37,31 +37,31 @@ export const group2Subjects2 = [
     {
       name: "Engineering Mathematics - II",
       icon: <FaCalculator />,
-      page: '/engineeringmaths2'
+      page: '/notes/engineeringmaths2'
     },
     {
       name: "Engineering Physics - II",
       icon: <FaAtom />,
-      page: '/engineeringphy2'
+      page: '/notes/engineeringphy2'
     },
     {
       name: "Engineering Chemistry - II",
       icon: <FaFlask />,
-      page: '/engineeringchem2'
+      page: '/notes/engineeringchem2'
     },
     {
       name: "Professional Communication in English",
       icon: <FaComments />,
-      page: '/english'
+      page: '/notes/english'
     },
     {
       name: "Basic Electrical Engineering (BEE)",
       icon: <FaBolt />,
-      page: '/bee'
+      page: '/notes/bee'
     },
     {
       name: "Engineering Mechanics",
       icon: <FaTools />,
-      page: '/mechanics'
+      page: '/notes/mechanics'
     },
 ];
