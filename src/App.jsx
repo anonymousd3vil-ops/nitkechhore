@@ -9,6 +9,7 @@ import Denied  from './pages/deniedPage.jsx'
 import RequireAuth from './components/auth/requireAuthorization.jsx'
 import Compiler from './pages/compiler.jsx'
 import NotesHomePage from './pages/notes/noteHome.jsx'
+import EMaths from './pages/notes/engineeringMathematics.jsx'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route element={<RequireAuth allowedRoles={['USER', 'ADMIN']} />} >
           <Route path='/compiler' element={<Compiler />}> </Route>
           <Route path='/notes' element={<NotesHomePage />}></Route>
+          <Route path='notes/engineeringmaths1' element={<EMaths />}></Route>
         </Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
