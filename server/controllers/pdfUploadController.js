@@ -57,3 +57,25 @@ export const uploadNote = async (req, res, next) =>{
         });
     }
 }
+
+export const getSem1Notes = async(req, res, next) =>{
+    try{
+        const sem1Notes = await Notes.find({semester: 1});
+        
+        if(!sem1Notes){
+            return next(new AppError("There is no Notes from Semester 1", 404));
+        }
+
+        res.status(201).json({
+            success: true,
+            message: 'All Notes of Semester One Fetched Successfully.',
+            sem1Notes
+        });
+    }catch(err){
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: err.message
+        });
+    }
+}
