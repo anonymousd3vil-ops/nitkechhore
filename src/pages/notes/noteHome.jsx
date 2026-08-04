@@ -1,8 +1,8 @@
 import MainLayout from "../../layout/mainLayout.jsx";
 import { FaArrowRight, FaGraduationCap } from "react-icons/fa";
 
-import { group1Subjects } from "../../constants/notesConstants/group1Subjects.jsx";
-import { group2Subjects } from "../../constants/notesConstants/group2Subjects.jsx";
+import { group2Subjects1, group2Subjects2 } from "../../constants/notesConstants/group2Subjects.jsx";
+import { group1Subjects1, group1Subjects2 } from "../../constants/notesConstants/group1Subjects.jsx";
 import { years } from "../../constants/notesConstants/years.js";
 import SubjectItem from "../../components/notesComponents.jsx/subjectItem.jsx";
 
@@ -61,16 +61,16 @@ function NotesHomePage() {
                 <details open>
                   <summary>Semester 1</summary>
                   <ul className="menu bg-base-100 rounded-box w-full">
-                    {group1Subjects.map((subject, index) => (
-                      <SubjectItem key={index} subject={subject} />
+                    {group1Subjects1.map((subject, index) => (
+                      <SubjectItem key={index} subject={subject} page={subject.page}/>
                     ))}
                   </ul>
                 </details>
                 <details>
                   <summary>Semester 2</summary>
                   <ul className="menu bg-base-100 rounded-box w-full">
-                    {group1Subjects.map((subject, index) => (
-                      <SubjectItem key={index} subject={subject} />
+                    {group1Subjects2.map((subject, index) => (
+                      <SubjectItem key={index} subject={subject} page={subject.page} />
                     ))}
                   </ul>
                 </details>
@@ -97,16 +97,16 @@ function NotesHomePage() {
                 <details open>
                   <summary>Semester 1</summary>
                   <ul className="menu bg-base-100 rounded-box w-full">
-                    {group2Subjects.map((subject, index) => (
-                      <SubjectItem key={index} subject={subject} />
+                    {group2Subjects1.map((subject, index) => (
+                      <SubjectItem key={index} subject={subject} page={subject.page} />
                     ))}
                   </ul>
                 </details>
                 <details>
                   <summary>Semester 2</summary>
                   <ul className="menu bg-base-100 rounded-box w-full">
-                    {group2Subjects.map((subject, index) => (
-                      <SubjectItem key={index} subject={subject} />
+                    {group2Subjects2.map((subject, index) => (
+                      <SubjectItem key={index} subject={subject} page={subject.page}/>
                     ))}
                   </ul>
                 </details>

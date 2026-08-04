@@ -28,7 +28,7 @@ export const memberDetails = [
         memberTag: "Member"
     },
     {
-        name: "Shoham Das",
+        name: "Shoham Nath",
         profilePic: vivekPic,
         memberTag: "Member"
     },

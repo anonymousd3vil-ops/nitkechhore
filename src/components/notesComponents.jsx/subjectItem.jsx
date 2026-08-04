@@ -1,4 +1,8 @@
-function SubjectItem({subject}){
+import { GiBookshelf } from "react-icons/gi";
+import { PiExam } from "react-icons/pi";
+import { Link } from "react-router-dom";
+
+function SubjectItem({subject, page}){
     return (
       <li>
         <details>
@@ -12,11 +16,11 @@ function SubjectItem({subject}){
 
           <ul className="ml-4 mt-1">
             <li>
-              <a>📖 Notes</a>
+              <Link to={page}><GiBookshelf/> Notes</Link>
             </li>   
 
             <li>
-              <a>📝 Previous Year Questions</a>
+              <a><PiExam/> Previous Year Questions</a>
             </li>
           </ul>
         </details>
