@@ -30,17 +30,17 @@ function EMaths() {
                                 <FaBookOpen className="text-2xl" />
                             </div>
                             <div>
-                                <h1 className="text-2xl md:text-3xl font-bold text-base-content">
+                                <h1 className="text-2xl md:text-3xl font-bold text-base-content font-primary">
                                     Engineering Mathematics
                                 </h1>
-                                <p className="text-sm text-base-content/60 mt-1">
+                                <p className="text-sm text-base-content/60 mt-1 font-secondary">
                                     Semester 1 Notes
                                 </p>
                             </div>
                         </div>
                         <div className="divider my-4" />
                         {!loading && (
-                            <p className="text-sm text-base-content/60">
+                            <p className="text-sm text-base-content/60 font-secondary">
                                 {mathNotes.length}{" "}
                                 {mathNotes.length === 1 ? "note" : "notes"} available
                             </p>
@@ -52,7 +52,7 @@ function EMaths() {
                         <div className="flex flex-col items-center justify-center py-24 gap-4">
                             <span className="loading loading-spinner loading-lg text-primary"></span>
 
-                            <p className="text-base-content/60">
+                            <p className="text-base-content/60 font-secondary">
                                 Loading mathematics notes...
                             </p>
                         </div>
@@ -61,7 +61,7 @@ function EMaths() {
                     {/* Notes */}
                     {!loading && mathNotes.length > 0 && (
                         <div
-                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 font-primary"
                         >
                             {mathNotes.map((note) => (
                                 <PDFCard
@@ -82,10 +82,10 @@ function EMaths() {
                                 <FaBookOpen className="text-4xl text-base-content/30" />
                             </div>
 
-                            <h2 className="text-xl font-semibold">
+                            <h2 className="text-xl font-semibold font-secondary">
                                 No Mathematics Notes Yet
                             </h2>
-                            <p className="text-base-content/60 mt-2 max-w-md">
+                            <p className="text-base-content/60 mt-2 max-w-md font-secondary">
                                 Mathematics notes haven't been uploaded yet.
                                 Check back later for new notes.
                             </p>

@@ -12,27 +12,25 @@ function Footer() {
                 <nav>
                     <h6 className="footer-title font-primary ">Services</h6>
                     <Link to={'/compiler'} className={commonHoverEffect}>Online Compiler</Link>
-                    <Link className={commonHoverEffect}>Design</Link>
-                    <Link className={commonHoverEffect}>Marketing</Link>
-                    <Link className={commonHoverEffect}>Advertisement</Link>
+                    <Link to={'/notes'} className={commonHoverEffect}>Notes</Link>
                 </nav>
                 <nav>
                     <h6 className="footer-title font-primary">Company</h6>
                     <Link to="/about" className={commonHoverEffect}> About Us</Link>
-                    <Link to="/contact" className={commonHoverEffect}> Contact</Link>
+                    <Link to="/contact" className={commonHoverEffect}> Contact Us</Link>
                 </nav>
                 <nav>
                     <h6 className="footer-title font-primary">Social</h6>
                     <div className="grid grid-flow-col gap-4">
-                    <a>
+                    <Link to={'https://www.instagram.com/nitkechhore'} target="_blank">
                         <AiOutlineInstagram className="text-4xl hover:text-[#2f7f8a] cursor-pointer transition-all duration-300"/>
-                    </a>
-                    <a>
+                    </Link>
+                    <Link>
                         <MdAlternateEmail className="text-4xl hover:text-[#2f7f8a] cursor-pointer transition-all duration-300"/>
-                    </a>
-                    <a>
+                    </Link>
+                    <Link>
                         <ImYoutube2 className="text-4xl hover:text-[#2f7f8a] cursor-pointer transition-all duration-300"/>
-                    </a>
+                    </Link>
                     </div>
                 </nav>
             </nav>

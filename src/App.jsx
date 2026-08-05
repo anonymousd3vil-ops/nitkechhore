@@ -11,6 +11,7 @@ import Compiler from './pages/compiler.jsx'
 import NotesHomePage from './pages/notes/noteHome.jsx'
 import EMaths from './pages/notes/engineeringMathematics.jsx'
 import PdfViewer from './pages/pdfViewer/pdfViewer.jsx'
+import Profile from './pages/user/profile.jsx'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/denied' element={<Denied /> }></Route>
 
         <Route element={<RequireAuth allowedRoles={['USER', 'ADMIN']} />} >
+          <Route path='/profile' element={<Profile />}></Route>
           <Route path='/compiler' element={<Compiler />}> </Route>
           <Route path='/notes' element={<NotesHomePage />}></Route>
           <Route path='notes/engineeringmaths1' element={<EMaths />}></Route>

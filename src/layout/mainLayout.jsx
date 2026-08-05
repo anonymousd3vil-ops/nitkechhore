@@ -57,7 +57,7 @@ function MainLayout({children}) {
                                 <ul
                                     tabIndex="-1"
                                     className="menu menu-sm dropdown-content bg-base-200 rounded-lg z-1 mt-3 w-60 p-2 shadow">
-                                    <li><Link>Profile</Link></li>
+                                    <li><Link to={'/profile'}>Profile</Link></li>
                                     <li><Link>Settings</Link></li>
                                     <li><Link onClick={handelLogout}>Logout</Link></li>
                                 </ul>
