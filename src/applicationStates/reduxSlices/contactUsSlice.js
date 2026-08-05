@@ -2,11 +2,28 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import API from "../../helpers/axiosInstance.js"
 import toast from "react-hot-toast"
 
+const ALLQUERIES = 'all_queries'
+
+function getStoredQueries(){
+    const queries = localStorage.getItem(ALLQUERIES);
+
+    if(!queries){
+        return [];
+    }
+
+    try{
+        return JSON.parse(queries)
+    }catch{
+        localStorage.removeItem(ALLQUERIES);
+        return [];
+    }
+}
+
+
+
 const initialState = {
     loading: false,
-    mail: '',
-    subject: '',
-    message: ''
+    queries: getStoredQueries(),
 }
 
 export const contactusSubmit = createAsyncThunk('/contact/contactus', async(data) => {
@@ -21,21 +38,28 @@ export const contactusSubmit = createAsyncThunk('/contact/contactus', async(data
                 err?.response?.data?.message || "Failed to Submit the Query."
         });
 
-        const response = await request;
-        return response.data;
-
     }catch(err){
         console.log(err.message)
+        toast.error(err?.response?.data?.message);
     }
 });
 
 export const getQueries = createAsyncThunk('/contact/getqueries', async() => {
-    const request = await API.get('/contact/getQueries');
-    toast.promise(request, {
-        loading: "Please wait, Fetching Queries.",
-        success: "All Queries Fetched.",
-        error: "There is some error occured while fetching Queries."
-    })
+    try{
+        const request = API.get('/contact/getQueries');
+        toast.promise(request, {
+            loading: "Please wait, Fetching Queries.",
+            success: "All Queries Fetched.",
+            error: "There is some error occured while fetching Queries."
+        });
+
+        const response = await request;
+        return response.data;
+    }catch(err){
+        console.log(err.message)
+        toast.error(err?.response?.data?.message);
+    }
+
 })
 
 const contactUsSlice = createSlice({
@@ -53,6 +77,17 @@ const contactUsSlice = createSlice({
             .addCase(contactusSubmit.rejected, (state) => {
                 state.loading = false;
                 toast.error("Query Submission Failed.")
+            })
+            .addCase(getQueries.pending, (state)=>{
+                state.loading = true;
+            })
+            .addCase(getQueries.fulfilled, (state, action) => {
+                // console.log(action.payload);
+                state.loading = false;
+                state.queries = action.payload.queries;
+            })
+            .addCase(getQueries.rejected, (state) => {
+                state.loading = false;
             })
     }
 });

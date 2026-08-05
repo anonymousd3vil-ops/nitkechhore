@@ -12,6 +12,7 @@ import NotesHomePage from './pages/notes/noteHome.jsx'
 import EMaths from './pages/notes/engineeringMathematics.jsx'
 import PdfViewer from './pages/pdfViewer/pdfViewer.jsx'
 import Profile from './pages/user/profile.jsx'
+import Queries from './pages/admin/querys.jsx'
 
 function App() {
 
@@ -25,6 +26,10 @@ function App() {
         <Route path='/user/register' element={<Registration />}></Route>
         <Route path='/user/login' element={<Login />}></Route>
         <Route path='/denied' element={<Denied /> }></Route>
+
+        <Route element={<RequireAuth allowedRoles={['ADMIN']} />} >
+          <Route path='/admin/queries' element={<Queries />}></Route>
+        </Route>
 
         <Route element={<RequireAuth allowedRoles={['USER', 'ADMIN']} />} >
           <Route path='/profile' element={<Profile />}></Route>
