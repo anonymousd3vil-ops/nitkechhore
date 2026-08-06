@@ -19,6 +19,22 @@ function getStoredNotes(){
     }
 }
 
+export const uploadNotes = createAsyncThunk('/notes/uploadNotes', async(data) => {
+    try{
+        const request = API.post('/notes/upload', data);
+        toast.promise(request, {
+            loading: "Please Wait, Uploading Notes.",
+            success: (data) => data?.data?.message || 'Notes Uploaded Succesfully.',
+            error: (err) => err?.response?.data?.message || 'Failed to Fetch Notes...'
+        });
+
+        const response = await request;
+        return response.data;
+    }catch(err){
+        toast.error(err?.response?.data?.message);
+    }
+})
+
 export const getSem1Notes = createAsyncThunk('/notes/getsem1notes', async () => {
     try{
         const request = API.get('/notes/sem1');

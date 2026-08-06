@@ -13,6 +13,9 @@ import EMaths from './pages/notes/engineeringMathematics.jsx'
 import PdfViewer from './pages/pdfViewer/pdfViewer.jsx'
 import Profile from './pages/user/profile.jsx'
 import Queries from './pages/admin/querys.jsx'
+import UploadNotes from './pages/admin/uploadNotes.jsx'
+import EPhysics from './pages/notes/engineeringphy1.jsx'
+import EChemistry from './pages/notes/engineeringchem1.jsx'
 
 function App() {
 
@@ -28,15 +31,19 @@ function App() {
         <Route path='/denied' element={<Denied /> }></Route>
 
         <Route element={<RequireAuth allowedRoles={['ADMIN']} />} >
-          <Route path='/admin/queries' element={<Queries />}></Route>
+         	<Route path='/admin/queries' element={<Queries />}></Route>
+          	<Route path='/admin/uploadnotes' element={<UploadNotes />}></Route>
+          
         </Route>
 
         <Route element={<RequireAuth allowedRoles={['USER', 'ADMIN']} />} >
-          <Route path='/profile' element={<Profile />}></Route>
-          <Route path='/compiler' element={<Compiler />}> </Route>
-          <Route path='/notes' element={<NotesHomePage />}></Route>
-          <Route path='notes/engineeringmaths1' element={<EMaths />}></Route>
-          <Route path="/pdf-viewer" element={<PdfViewer />} />
+			<Route path='/profile' element={<Profile />}></Route>
+			<Route path='/compiler' element={<Compiler />}> </Route>
+			<Route path='/notes' element={<NotesHomePage />}></Route>
+			<Route path='/notes/engineeringmaths1' element={<EMaths />}></Route>
+			<Route path='/notes/engineeringphy1' element={<EPhysics />}></Route>
+			<Route path='/notes/engineeringchem1' element={<EChemistry />}></Route>
+			<Route path="/pdf-viewer" element={<PdfViewer />} />
         </Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>

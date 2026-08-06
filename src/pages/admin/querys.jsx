@@ -20,15 +20,15 @@ function Queries() {
 
                 {/* Header */}
                 <div className="mb-10">
-                    <p className="text-primary font-semibold uppercase tracking-widest text-sm">
+                    <p className="text-primary font-semibold uppercase tracking-widest text-sm font-secondary">
                         Admin Panel
                     </p>
 
-                    <h1 className="text-4xl font-black mt-1">
+                    <h1 className="text-4xl font-black mt-1 font-primary">
                         User Queries
                     </h1>
 
-                    <p className="text-base-content/50 mt-2">
+                    <p className="text-base-content/50 mt-2 font-secondary">
                         View queries and messages submitted by users.
                     </p>
                 </div>

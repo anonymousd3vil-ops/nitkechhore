@@ -89,6 +89,7 @@ function Registration() {
         formData.append('password', registerationData.password);
         formData.append('branch', registerationData.branch);
         formData.append('enrolmentNo', registerationData.enrolmentNo);
+        formData.append('avatar', registerationData.avatar);
 
         const response = await dispatch(registerUser(formData));
 
