@@ -9,13 +9,15 @@ import Denied  from './pages/deniedPage.jsx'
 import RequireAuth from './components/auth/requireAuthorization.jsx'
 import Compiler from './pages/compiler.jsx'
 import NotesHomePage from './pages/notes/noteHome.jsx'
-import EMaths from './pages/notes/engineeringMathematics.jsx'
+// import EMaths from './pages/notes/engineeringMathematics.jsx'
 import PdfViewer from './pages/pdfViewer/pdfViewer.jsx'
 import Profile from './pages/user/profile.jsx'
 import Queries from './pages/admin/querys.jsx'
 import UploadNotes from './pages/admin/uploadNotes.jsx'
-import EPhysics from './pages/notes/engineeringphy1.jsx'
-import EChemistry from './pages/notes/engineeringchem1.jsx'
+import NotesPage from './pages/notes/NotesPage.jsx'
+import notesRoutes from './constants/notesConstants/notesRoutes.js'
+// import EPhysics from './pages/notes/engineeringphy1.jsx'
+// import EChemistry from './pages/notes/engineeringchem1.jsx'
 
 function App() {
 
@@ -40,9 +42,14 @@ function App() {
 			<Route path='/profile' element={<Profile />}></Route>
 			<Route path='/compiler' element={<Compiler />}> </Route>
 			<Route path='/notes' element={<NotesHomePage />}></Route>
-			<Route path='/notes/engineeringmaths1' element={<EMaths />}></Route>
-			<Route path='/notes/engineeringphy1' element={<EPhysics />}></Route>
-			<Route path='/notes/engineeringchem1' element={<EChemistry />}></Route>
+
+			{notesRoutes.map((route) => (
+				<Route
+					path={route.path}
+					element={<NotesPage key={route.path} {...route} />}
+				/>
+			))}
+
 			<Route path="/pdf-viewer" element={<PdfViewer />} />
         </Route>
         <Route path='*' element={<NotFound />}></Route>
