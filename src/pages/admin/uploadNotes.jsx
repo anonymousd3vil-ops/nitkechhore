@@ -32,7 +32,22 @@ function UploadNotes() {
 
 		const uploadedPDF = event.target.files[0];
 
+        if (!uploadedPDF) return;
+
+        if (uploadedPDF.type !== "application/pdf") {
+            toast.error("Please upload a PDF file.");
+            event.target.value = "";
+            return;
+        }
+
 		if(uploadedPDF){
+            if (uploadedPDF.size > 20 * 1024 * 1024) {
+                toast.error("Please upload the PDF of size having less than 20MB.");
+
+                // Clear the selected file
+                event.target.value = "";
+                return;
+            }
 			setNotesData({
                 ...notesData,
                 pdf: uploadedPDF
@@ -86,9 +101,9 @@ function UploadNotes() {
                     </p>
                 </div>
                 {/* Main Card */}
-                <div className="card w-full max-w-6xl mx-auto bg-base-200 shadow-xl border border-base-300 lg:grid lg:grid-cols-[0.9fr_1.1fr] overflow-hidden rounded-3xl">
+                <div className="card w-full max-w-6xl mx-auto bg-base-200 shadow-xl border border-base-300 lg:grid lg:grid-cols-[0.9fr_1.1fr] overflow-hidden">
                     {/* LEFT SIDE */}
-                    <div className="hidden lg:flex flex-col justify-between bg-primary text-primary-content p-10 xl:p-12">
+                    <div className="lg:flex flex-col justify-between bg-primary text-primary-content p-10 xl:p-12">
                         <div>
                             <p className="uppercase tracking-[0.2em] text-xs font-semibold opacity-70 font-secondary">
                                 Guidelines
@@ -119,11 +134,55 @@ function UploadNotes() {
                                 <div className="flex gap-4">
                                     <CheckCircle2 size={21} className="shrink-0 mt-0.5" />
                                     <div>
-                                        <p className="font-semibold">
-                                            Enter subject name only
-                                        </p>
+                                        <div className="flex items-center ">
+                                            <p className="font-semibold">
+                                                Enter subject name only
+                                            </p>
+                                            {/* You can open the modal using document.getElementById('ID').showModal() method */}
+                                            <button className="ml-2 btn rounded-full border-0 h-5 w-5" onClick={()=>document.getElementById('my_modal_3').showModal()}>i</button>
+                                            <dialog id="my_modal_3" className="modal">
+                                            <div className="modal-box">
+                                                <form method="dialog">
+                                                {/* if there is a button in form, it will close the modal */}
+                                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                                </form>
+                                                <h3 className="font-bold text-lg font-primary text-primary underline">Guidlines to Enter Subject Name</h3>
+                                                {/* <p className="py-4">Press ESC key or click on ✕ button to close</p> */}
+                                                <p className="text-sm opacity-70 mt-1 font-secondary text-secondary">
+                                                    Engineering Mathematics - I OR II → Mathematics
+                                                </p>
+                                                <p className="text-sm opacity-70 mt-1 font-secondary text-secondary">
+                                                    Engineering Physics - I OR II → Physics
+                                                </p>
+                                                <p className="text-sm opacity-70 mt-1 font-secondary text-secondary">
+                                                    Engineering Chemsitry - I OR II → Chemistry
+                                                </p>
+                                                <p className="text-sm opacity-70 mt-1 font-secondary text-secondary">
+                                                    Basic Electronics → BE
+                                                </p>
+                                                <p className="text-sm opacity-70 mt-1 font-secondary text-secondary">
+                                                    Profesional Comunication in English → English
+                                                </p>
+                                                <p className="text-sm opacity-70 mt-1 font-secondary text-secondary">
+                                                    Basic Electrical Engineeting → BEE
+                                                </p>
+                                                <p className="text-sm opacity-70 mt-1 font-secondary text-secondary">
+                                                    Introduction to Programming → IP
+                                                </p>
+                                                <p className="text-sm opacity-70 mt-1 font-secondary text-secondary">
+                                                    Disaster Management → DSTM
+                                                </p>
+                                                <p className="text-sm opacity-70 mt-1 font-secondary text-secondary">
+                                                    Engineering Mechanics → Mechanics
+                                                </p>
+                                            </div>
+                                            </dialog>
+                                        </div>
                                         <p className="text-sm opacity-70 mt-1">
                                             Example: Engineering Mathematics - I → Mathematics
+                                        </p>
+                                        <p className="text-sm opacity-70 mt-1">
+                                            Example: Basic Electrical Engineeting → BEE
                                         </p>
                                     </div>
                                 </div>

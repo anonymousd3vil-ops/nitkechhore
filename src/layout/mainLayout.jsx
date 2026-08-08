@@ -3,6 +3,7 @@ import Footer from "../components/footer";
 import { commonHoverEffect } from "../styles/commonStyles.js";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../applicationStates/reduxSlices/userAuthSlice.js";
+import ThemeToggle from "../components/ThemeToggel.jsx";
 
 function MainLayout({children}) {
     const navigate = useNavigate();
@@ -22,6 +23,34 @@ function MainLayout({children}) {
 
     return (
         <div>
+            <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-50 flex">
+                <ThemeToggle /> 
+                {
+                    isLoggedIn && (
+
+                        <div className="w-10 rounded-full btn p-0.5">
+                            <img
+                                className="rounded-full"
+                                alt="Profile Picture"
+                                src={profilePic}
+                                onClick={() => navigate('/profile')}
+                            />
+                        </div>
+                    )
+                }
+                {
+                    isLoggedIn && (
+                        <div>
+                            <button onClick={handelLogout} className="btn btn-primary rounded-full">Logout</button>
+                        </div>
+                    )
+                }
+                {
+                    !isLoggedIn && (
+                        <Link to={'/user/login'}><button className="btn btn-primary rounded-full">Login</button></Link>
+                    )
+                }
+            </div>
             <div className="navbar bg-base-100 shadow-sm p-5 flex-col md:flex-row">
                 <div className="flex-1">
                     <Link to={"/"} className="btn btn-ghost text-3xl rounded-lg font-primary">nitkechhore</Link>

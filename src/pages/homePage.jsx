@@ -78,13 +78,9 @@ function HomePage(){
                         }
 
                     </div>
-
                 </section>
-
-
-
                 {/* Feature Section */}
-                <div className="absolute animate-bounce hidden md:block w-96 h-96 bg-secondary/20 rounded-full blur-3xl top-250 left-0"></div>
+                <div className="absolute animate-bounce hidden md:block w-96 h-96 bg-primary/20 rounded-full blur-3xl top-250 left-0"></div>
                 <section className="mt-24">
                     <div className="text-center">
                         <h2 className="text-4xl md:text-5xl font-bold">
@@ -107,29 +103,19 @@ function HomePage(){
                                 next={feature.next}
                             />
                         ))}
-
                     </div>
-
                 </section>
 
-
-
                 {/* Categories */}
-
                 <section className="mt-24">
-
                     <div className="text-center">
-
                         <h2 className="text-4xl md:text-5xl font-bold">
                             Popular Categories
                         </h2>
-
                         <p className="text-base-content/70 mt-3">
                             Find exactly what you're looking for.
                         </p>
-
                     </div>
-
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12 justify-items-center">
 
                         {categories.map((category) => (
@@ -139,15 +125,11 @@ function HomePage(){
                                 icon={category.icon}
                             />
                         ))}
-
                     </div>
-
                 </section>
-
             </div>
-                        
         </MainLayout>
-    )
+    );
 }
 
 export default HomePage;
