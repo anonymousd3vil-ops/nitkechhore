@@ -28,19 +28,21 @@ function FeatureCard({ topic, tagline, icon, next }) {
     );
 }
 
-function Categories({ topic, icon }) {
+function Categories({ topic, icon, next }) {
     return (
         <div className="card bg-base-200 border border-base-300 shadow hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer w-52">
-            <div className="card-body items-center justify-center py-8">
+            <Link to={next}>
+                <div className="card-body items-center justify-center py-8">
 
-                <div className="w-14 h-14 rounded-full bg-secondary/15 flex items-center justify-center mb-3">
-                    {icon}
+                    <div className="w-14 h-14 rounded-full bg-secondary/15 flex items-center justify-center mb-3">
+                        {icon}
+                    </div>
+
+                    <h2 className="text-xl font-bold text-center text-base-content">
+                        {topic}
+                    </h2>
                 </div>
-
-                <h2 className="text-xl font-bold text-center text-base-content">
-                    {topic}
-                </h2>
-            </div>
+            </Link>
         </div>
     );
 }

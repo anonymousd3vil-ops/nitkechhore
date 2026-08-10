@@ -123,6 +123,7 @@ function HomePage(){
                                 key={category.title}
                                 topic={category.title}
                                 icon={category.icon}
+                                next={category.next}
                             />
                         ))}
                     </div>

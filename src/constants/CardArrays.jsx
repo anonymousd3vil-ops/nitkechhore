@@ -53,7 +53,8 @@ export const FeaturesCardArray = [
 export const categories = [
   {
     title: 'Notes',
-    icon: <GiBookshelf className="text-2xl"/>
+    icon: <GiBookshelf className="text-2xl"/>,
+    next: '/notes'
   },
   {
     title: 'Coding',
