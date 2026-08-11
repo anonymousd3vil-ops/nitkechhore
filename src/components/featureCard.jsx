@@ -1,3 +1,4 @@
+import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function FeatureCard({ topic, tagline, icon, next }) {
@@ -19,7 +20,7 @@ function FeatureCard({ topic, tagline, icon, next }) {
 
                     <div className="card-actions justify-end mt-3">
                         <button className="btn btn-primary btn-sm">
-                            Explore →
+                            Explore <FaArrowRight />
                         </button>
                     </div>
                 </div>
