@@ -1,10 +1,13 @@
 import { TypeAnimation } from "react-type-animation";
 import MainLayout from "../../layout/mainLayout.jsx";
+import { homePageRedirector } from "../../constants/codingConstants/homepageCard.jsx";
+import CodingCategories from "../../components/coding/codingHomePageCards.jsx";
+import { Link } from "react-router-dom";
 
 function CodingHomePage() {
   return (
     <MainLayout>
-      <div className="h-screen">
+      <div >
         <section className="relative overflow-hidden">
           {/* Background decoration */}
 			<div className="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
@@ -53,14 +56,18 @@ function CodingHomePage() {
 					</p>
 
 					<div className="mt-9 flex flex-wrap gap-3 font-primary">
-						<button className="btn btn-primary px-7">
-							Start Coding
-							<span>→</span>
-						</button>
-
-						<button className="btn btn-outline px-7">
-							Explore Roadmap
-						</button>
+						<Link to={'/coding/qotd'}>
+							<button className="btn btn-primary px-7">
+								QoTD
+								<span>→</span>
+							</button>
+						</Link>
+						
+						<Link to={'/coding/dsa'}>
+							<button className="btn btn-outline px-7">
+								Explore DSA Problems
+							</button>
+						</Link>
 					</div>
 
 					{/* Small trust indicators */}
@@ -108,6 +115,16 @@ function CodingHomePage() {
 				</div>
 			</div>
         </section>
+		<div className="flex items-center justify-center flex-col">
+			<h1 className="text-2xl font-bold">Explore Our Functionalities</h1>
+			<div className="h-0.5 w-80 bg-primary rounded-full mb-10 " />
+			<div className="flex md:flex-row flex-col items-center justify-center gap-10">
+
+				{
+					homePageRedirector.map((feature) => <CodingCategories key={feature.id} topic={feature.title} next={feature.redirectionLink} icon={feature.icon}/>)
+				}
+			</div>
+		</div>
       </div>
     </MainLayout>
   );
