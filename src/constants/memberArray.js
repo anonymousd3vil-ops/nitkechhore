@@ -50,4 +50,10 @@ export const developers = [
         profilePic: vivekPic,
         tag: "Lead Developer"
     },
+
+     {
+        name: "Priyanshu",
+        profilePic: vivekPic,
+        tag: "Developer"
+    },
 ]

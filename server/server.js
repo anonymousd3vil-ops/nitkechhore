@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
-import app from './App.js'
+import 'dotenv/config';
+
+import app from './App.js';
 import connetToDb from './config/dbConnection.js';
 import cloudinary from 'cloudinary';
 
