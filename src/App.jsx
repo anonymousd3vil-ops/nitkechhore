@@ -17,7 +17,8 @@ import UploadNotes from './pages/admin/uploadNotes.jsx'
 import NotesPage from './pages/notes/NotesPage.jsx'
 import notesRoutes from './constants/notesConstants/notesRoutes.js'
 import CodingHomePage from './pages/coding/codingHome.jsx'
-import FrontendRoadmap from './pages/coding/roadmaps/Roadmap.jsx'
+import FrontendRoadmap from './pages/coding/roadmaps/FrontendRoadmap.jsx'
+import RoadmapList from './pages/coding/roadmapList.jsx'
 // import EPhysics from './pages/notes/engineeringphy1.jsx'
 // import EChemistry from './pages/notes/engineeringchem1.jsx'
 
@@ -53,7 +54,8 @@ function App() {
 			))}
 
 			<Route path='/coding' element={<CodingHomePage />}></Route>
-			<Route path='/coding/roadmap' element={<FrontendRoadmap />}></Route>
+			<Route path='/roadmap' element={<RoadmapList />}></Route>
+			<Route path='/roadmap/frontend' element={<FrontendRoadmap />}></Route>
 			<Route path="/pdf-viewer" element={<PdfViewer />} />
         </Route>
         <Route path='*' element={<NotFound />}></Route>

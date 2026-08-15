@@ -4,19 +4,19 @@ export const homePageRedirector = [
     {
         id: 1,
         title: 'Roadmaps',
-        redirectionLink: '/coding/roadmaps',
+        redirectionLink: '/roadmap',
         icon: <FaRoad className="text-2xl" />
     },
     {
         id: 2,
         title: 'DSA Questions',
-        redirectionLink: '/coding/dsa',
+        redirectionLink: '/dsa',
         icon: <FaLaptopCode className="text-2xl"/>
     },
     {
         id: 1,
         title: 'QoTD',
-        redirectionLink: '/coding/qotd',
+        redirectionLink: '/qotd',
         icon: <FaQuestion className="text-2xl"/>
     }
 ]

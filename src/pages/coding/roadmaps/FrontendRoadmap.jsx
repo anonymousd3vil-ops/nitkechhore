@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import mermaid from "mermaid";
-import MainLayout from "../../../layout/mainLayout";
-import { TOPIC_DETAILS, CHART_DEFINITION } from "../../../constants/codingConstants/roadmaps/frontendTopicDetails";
+import MainLayout from "../../../layout/mainLayout.jsx";
+import { TOPIC_DETAILS, CHART_DEFINITION } from "../../../constants/codingConstants/roadmaps/frontendTopicDetails.js";
 import { TopicModal } from "../../../components/coding/roadmap/topicModal.jsx";
 
 export default function FrontendRoadmap() {

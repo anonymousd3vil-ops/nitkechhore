@@ -3,38 +3,38 @@ export const TOPIC_DETAILS = {
     title: "Internet Fundamentals",
     level: "Beginner",
     description:
-      "Understand how packets move across the web, clients, servers, IP addresses, and browsers.",
+      "The internet is a global network connecting computers and devices for information sharing. Enables browsing, email, streaming, and communication through interconnected systems. Acts as worldwide infrastructure facilitating access to online resources and services.",
   },
   I2: {
     title: "HTTP / HTTPS",
     level: "Beginner",
     description:
-      "Understand HTTP methods (GET, POST, PUT, DELETE), status codes, headers, and SSL/TLS encryption.",
+      "HTTP (Hypertext Transfer Protocol) enables browser-server communication through requests and responses. Stateless protocol using methods like GET and POST. HTTPS provides encrypted security. Newer versions (HTTP/2, HTTP/3) offer improved performance. Fundamental for web development understanding.",
   },
   I3: {
     title: "Domain & Hosting",
     level: "Beginner",
     description:
-      "How domain registrars, nameservers, web hosts, and static hosting services interact.",
+      "Domain names are human-friendly web addresses (e.g., google.com) substituting numerical IP addresses. Comprise second-level (\"google\") and top-level (\".com\") domains. Registered through registrars, essential for branding and online presence. DNS translates names to IP addresses for accessibility.",
   },
   I4: {
     title: "DNS",
     level: "Beginner",
     description:
-      "How Domain Name Resolution works, including A, CNAME, and TXT records.",
+      "DNS (Domain Name System) translates human-readable domain names into IP addresses through a global, decentralized server network. Enables easy internet navigation by converting names like www.example.com to numeric addresses browsers can connect to.",
   },
   I5: {
     title: "Browsers & Rendering",
     level: "Beginner",
     description:
-      "How the browser engine parses HTML/CSS, creates DOM/CSSOM trees, and paints to the screen.",
+      "Web browsers request and display websites by interpreting HTML, CSS, and JavaScript. Use rendering engines (Blink, Gecko) for display and JavaScript engines (V8) for code execution. Handle security, bookmarks, history, and user interactions for web navigation.",
   },
 
   H1: {
     title: "HTML Basics",
     level: "Beginner",
     description:
-      "Document structure, core tags, attributes, text elements, lists, links, and images.",
+      "HTML (Hypertext Markup Language) is the standard for creating web pages, structuring content with elements and attributes. Browsers interpret HTML tags to render pages. HTML5, the current standard, adds semantic elements, multimedia support, and form controls. It works with CSS for styling and JavaScript for interactivity, forming web development's foundation.",
   },
   H2: {
     title: "Semantic HTML",
