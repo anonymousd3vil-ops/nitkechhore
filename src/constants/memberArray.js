@@ -51,7 +51,7 @@ export const developers = [
         tag: "Lead Developer"
     },
 
-    {
+     {
         name: "Priyanshu",
         profilePic: vivekPic,
         tag: "Developer"
