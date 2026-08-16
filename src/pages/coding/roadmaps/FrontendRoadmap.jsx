@@ -3,6 +3,7 @@ import mermaid from "mermaid";
 import MainLayout from "../../../layout/mainLayout.jsx";
 import { TOPIC_DETAILS, CHART_DEFINITION } from "../../../constants/codingConstants/roadmaps/frontendTopicDetails.js";
 import { TopicModal } from "../../../components/coding/roadmap/topicModal.jsx";
+import RoadmapTitle from "../../../components/coding/roadmap/RoadmapTitle.jsx";
 
 export default function FrontendRoadmap() {
   const containerRef = useRef(null);
@@ -11,20 +12,29 @@ export default function FrontendRoadmap() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-
     const detectTheme = () => {
-        const html = document.documentElement;
+      const html = document.documentElement;
 
-        const dataTheme = html.getAttribute("data-theme");
+      const dataTheme = html.getAttribute("data-theme");
 
-        const darkThemes = [ "dark", "night", "business", "coffee", "dracula", "halloween", "forest", "luxury", "black"];
+      const darkThemes = [
+        "dark",
+        "night",
+        "business",
+        "coffee",
+        "dracula",
+        "halloween",
+        "forest",
+        "luxury",
+        "black",
+      ];
 
-        if (dataTheme) {
-            setIsDarkMode(darkThemes.includes(dataTheme));
-            return;
-        }
+      if (dataTheme) {
+        setIsDarkMode(darkThemes.includes(dataTheme));
+        return;
+      }
 
-        setIsDarkMode(html.classList.contains("dark"));
+      setIsDarkMode(html.classList.contains("dark"));
     };
 
     detectTheme();
@@ -89,7 +99,6 @@ export default function FrontendRoadmap() {
           },
         });
 
-
         const uniqueId = `frontend-roadmap-${Date.now()}`;
 
         const result = await mermaid.render(uniqueId, CHART_DEFINITION);
@@ -123,13 +132,13 @@ export default function FrontendRoadmap() {
     renderRoadmap();
 
     return () => {
-      cancelled = true;
+		cancelled = true;
 
-      delete window.onRoadmapClick;
+		delete window.onRoadmapClick;
 
-      if (containerRef.current) {
-        containerRef.current.innerHTML = "";
-      }
+		if (containerRef.current) {
+			containerRef.current.innerHTML = "";
+		}
     };
   }, [isDarkMode]);
 
@@ -138,53 +147,31 @@ export default function FrontendRoadmap() {
   };
 
   return (
-
     <MainLayout>
-        <div className="min-h-screen bg-base-300 text-base-content flex flex-col items-center py-10 px-4">
+    	<div className="min-h-screen bg-base-300 text-base-content flex flex-col items-center py-10 px-4">
+			<RoadmapTitle title={'Frontend Developer Roadmap'}/>
 
-            <div className="text-center max-w-3xl mb-8">
-                <h1 className="text-4xl sm:text-5xl font-black tracking-tight mb-3 text-primary">
-                    Frontend Developer Roadmap
-                </h1>
+			<div className="card w-full max-w-6xl bg-base-100 shadow-2xl border border-base-200">
+			<div className="card-body p-4 sm:p-8">
+				<div className="w-full overflow-x-auto">
+				<div
+					ref={containerRef}
+					className=" w-full flex min-w-187.5 py-4"
+				/>
+				</div>
+			</div>
+			</div>
 
-                <p className="text-sm sm:text-base text-secondary mb-5">
-                    Click any step in the roadmap to view detailed information.
-                </p>
-
-                <div className="flex flex-wrap justify-center items-center gap-4 text-xs text-secondary">
-                    <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-[#7c3aed]" />
-                    <span>Personal Recommendation</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-[#0284c7]" />
-                    <span>Alternative Option</span>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-[#475569]" />
-                    <span>General / Flexible Order</span>
-                    </div>
-                </div>
-            </div>
-
-
-            <div className="card w-full max-w-6xl bg-base-100 shadow-2xl border border-base-200">
-                <div className="card-body p-4 sm:p-8">
-                    <div className="w-full overflow-x-auto">
-                        <div
-                            ref={containerRef}
-                            className=" w-full flex min-w-187.5 py-4"
-                        />
-                    </div>
-                </div>
-            </div>
-
-            {selectedTopic && (
-            <TopicModal key={selectedTopic.title} title={selectedTopic.title} level={selectedTopic.level} closeModal={closeModal} description={selectedTopic.description}/>
-            )}
-        </div>
+			{selectedTopic && (
+			<TopicModal
+				key={selectedTopic.title}
+				title={selectedTopic.title}
+				level={selectedTopic.level}
+				closeModal={closeModal}
+				description={selectedTopic.description}
+			/>
+			)}
+		</div>
     </MainLayout>
   );
 }

@@ -19,6 +19,7 @@ import notesRoutes from './constants/notesConstants/notesRoutes.js'
 import CodingHomePage from './pages/coding/codingHome.jsx'
 import FrontendRoadmap from './pages/coding/roadmaps/FrontendRoadmap.jsx'
 import RoadmapList from './pages/coding/roadmapList.jsx'
+import BackendRoadmap from './pages/coding/roadmaps/BackendRoadMap.jsx'
 // import EPhysics from './pages/notes/engineeringphy1.jsx'
 // import EChemistry from './pages/notes/engineeringchem1.jsx'
 
@@ -56,6 +57,7 @@ function App() {
 			<Route path='/coding' element={<CodingHomePage />}></Route>
 			<Route path='/roadmap' element={<RoadmapList />}></Route>
 			<Route path='/roadmap/frontend' element={<FrontendRoadmap />}></Route>
+			<Route path='/roadmap/backend' element={<BackendRoadmap />}></Route>
 			<Route path="/pdf-viewer" element={<PdfViewer />} />
         </Route>
         <Route path='*' element={<NotFound />}></Route>

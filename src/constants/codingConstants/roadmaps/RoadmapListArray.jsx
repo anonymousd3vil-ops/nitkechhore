@@ -59,4 +59,10 @@ export const RoadmapListArray = [
         next: '/roadmap/ios',
         icon: <FaAppStore/>
     },
+    {
+        id: 10,
+        title: 'Competitive Programming',
+        next: '/roadmap/cp',
+        icon: <FaAppStore/>
+    },
 ]
