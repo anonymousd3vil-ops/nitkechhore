@@ -8,7 +8,7 @@
     "server": {
       "root": "server",
       "runtime": "node",
-      "entrypoint": "api/index.js"
+      "entrypoint": "./index.js"
     }
   },
   "rewrites": [
