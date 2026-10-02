@@ -1,13 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 
-import CodeEditor from "../components/compiler/CodeEditor";
-import LanguageSelector from "../components/compiler/LanguageSelector";
-import InputConsole from "../components/compiler/InputConsole";
-import OutputConsole from "../components/compiler/OutputConsole";
+import CodeEditor from "../components/compiler/codeEditor.jsx";
+import LanguageSelector from "../components/compiler/LanguageSelector.jsx";
+import InputConsole from "../components/compiler/InputConsole.jsx";
+import OutputConsole from "../components/compiler/OutputConsole.jsx";
 
-import { COMPILER_LANGUAGES } from "../constants/compilerLanguages";
-import MainLayout from "../layout/mainLayout";
+import { COMPILER_LANGUAGES } from "../constants/compilerLanguages.js";
+import MainLayout from "../layout/mainLayout.jsx";
 import { IoCodeSlash } from "react-icons/io5";
 import { FaRunning } from "react-icons/fa";
 import toast from "react-hot-toast";
