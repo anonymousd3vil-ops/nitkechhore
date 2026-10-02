@@ -8,6 +8,7 @@ import { FeaturesCardArray, categories } from "../constants/CardArrays.jsx";
 import { Categories, FeatureCard } from "../components/featureCard.jsx";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { CiWarning } from "react-icons/ci";
 
 function HomePage(){
     const navigate = useNavigate();
@@ -21,7 +22,23 @@ function HomePage(){
 
                 {/* Hero */}
                 <section className="flex flex-col items-center text-center">
+                    <div className="w-full overflow-hidden bg-black text-white py-2">
+                        <div className="flex w-max animate-marquee font-primary">
+                            <span className="mx-8 whitespace-nowrap flex items-center gap-4">
+                                <CiWarning size={30}/> 
+                                <p>
+                                    This site is still in building phase — if you want to contribute, refer to the GitHub repository.
+                                </p>
+                            </span>
 
+                            <span className="mx-8 whitespace-nowrap flex items-center gap-4">
+                                <CiWarning size={30}/> 
+                                <p>
+                                    This site is still in building phase — if you want to contribute, refer to the GitHub repository.
+                                </p>
+                            </span>
+                        </div>
+                    </div>
                     <h1 className="font-primary text-5xl md:text-7xl font-extrabold text-primary tracking-tight">
                         NIT ke Chhore
                     </h1>

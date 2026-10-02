@@ -1,8 +1,9 @@
 import { AiOutlineInstagram } from "react-icons/ai";
-import { MdAlternateEmail } from "react-icons/md";
 import { ImYoutube2 } from "react-icons/im";
 import { Link } from "react-router-dom";
 import { commonHoverEffect } from "../styles/commonStyles.js";
+import { BsGithub } from "react-icons/bs";
+import { Mail } from "lucide-react";
 
 function Footer() {
 
@@ -57,14 +58,24 @@ function Footer() {
                                 <AiOutlineInstagram className="text-2xl hover:text-[#E1306C]" />
                             </Link>
                             <Link
+                                to={"mailto:nanduthecoder@gmail.com"}
                                 className="p-3 rounded-full bg-base-100 shadow-md hover:shadow-xl transition-all duration-300"
                             >
-                                <MdAlternateEmail className="text-2xl hover:text-[#0EA5E9]" />
+                                <Mail className="text-2xl hover:text-[#0EA5E9]" />
                             </Link>
                             <Link
+                                to="https://www.youtube.com/@Nitkechhore"
+                                target="_blank"
                                 className="p-3 rounded-full bg-base-100 shadow-md hover:shadow-xl transition-all duration-300"
                             >
                                 <ImYoutube2 className="text-2xl hover:text-[#FF0000]" />
+                            </Link>
+                            <Link
+                                to="https://github.com/anonymousd3vil-ops/nitkechhore"
+                                target="_blank"
+                                className="p-3 rounded-full bg-base-100 shadow-md hover:shadow-xl transition-all duration-300"
+                            >
+                                <BsGithub className="text-2xl hover:text-[#0d1117]" />
                             </Link>
                         </div>
                     </nav>

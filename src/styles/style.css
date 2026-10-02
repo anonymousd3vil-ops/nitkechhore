@@ -45,6 +45,20 @@
   --color-error: #EF4444;
 }
 
+@theme {
+  --animate-marquee: marquee 15s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+
 * {
   transition:background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }

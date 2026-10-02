@@ -9,7 +9,6 @@ import Denied  from './pages/deniedPage.jsx'
 import RequireAuth from './components/auth/requireAuthorization.jsx'
 import Compiler from './pages/compiler.jsx'
 import NotesHomePage from './pages/notes/noteHome.jsx'
-// import EMaths from './pages/notes/engineeringMathematics.jsx'
 import PdfViewer from './pages/pdfViewer/pdfViewer.jsx'
 import Profile from './pages/user/profile.jsx'
 import Queries from './pages/admin/querys.jsx'
@@ -20,8 +19,6 @@ import CodingHomePage from './pages/coding/codingHome.jsx'
 import FrontendRoadmap from './pages/coding/roadmaps/FrontendRoadmap.jsx'
 import RoadmapList from './pages/coding/roadmapList.jsx'
 import BackendRoadmap from './pages/coding/roadmaps/BackendRoadMap.jsx'
-// import EPhysics from './pages/notes/engineeringphy1.jsx'
-// import EChemistry from './pages/notes/engineeringchem1.jsx'
 
 function App() {
 
