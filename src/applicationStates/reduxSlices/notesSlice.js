@@ -32,6 +32,7 @@ export const uploadNotes = createAsyncThunk('/notes/uploadNotes', async(data) =>
         return response.data;
     }catch(err){
         toast.error(err?.response?.data?.message);
+        throw err;
     }
 })
 
@@ -49,6 +50,7 @@ export const getSem1Notes = createAsyncThunk('/notes/getsem1notes', async () => 
 
     }catch(err){
         toast.error(err?.response?.data?.message);
+        throw err;
     }
 });
 
@@ -68,7 +70,7 @@ const notesSlice = createSlice({
             })
             .addCase(getSem1Notes.fulfilled, (state, action) => {
                 state.loading = false;
-                state.notes = action.payload.sem1Notes;
+                state.notes = action.payload?.sem1Notes ?? [];
 
                 localStorage.setItem(COMPLETSEM1_NOTES, JSON.stringify(state.notes));
             })

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 
 import CodeEditor from "../components/compiler/codeEditor.jsx";
 import LanguageSelector from "../components/compiler/LanguageSelector.jsx";
@@ -11,6 +10,7 @@ import MainLayout from "../layout/mainLayout.jsx";
 import { IoCodeSlash } from "react-icons/io5";
 import { FaRunning } from "react-icons/fa";
 import toast from "react-hot-toast";
+import API from "../helpers/axiosInstance.js";
 
 function Compiler() {
     const [language, setLanguage] = useState("cpp");
@@ -41,7 +41,7 @@ function Compiler() {
             setOutput("");
             setError("");
 
-            const response = await axios.post("/api/compiler/execute",{
+            const response = await API.post("/compiler/execute",{
                 language,
                 code,
                 stdin: input

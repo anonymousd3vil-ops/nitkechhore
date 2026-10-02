@@ -6,7 +6,8 @@ import fs from 'fs';
 const cookieOptions = {
     maxAge: 2*24*60*60*1000, //2 days
     httpOnly: true,
-    secure: true
+    secure: true,
+    sameSite: "lax"
 }
 
 const register = async (req, res, next) => {

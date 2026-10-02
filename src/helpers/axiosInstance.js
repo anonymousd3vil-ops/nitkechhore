@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: 'https://nitkechhore.onrender.com/api',
+    baseURL: '/api',
     withCredentials: true
 });
 
