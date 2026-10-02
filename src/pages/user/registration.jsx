@@ -77,7 +77,7 @@ function Registration() {
             return;
         }
 
-        if(!registerationData.password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)){
+        if(!registerationData.password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,64}$/)){
             toast.error('Password must contain Minimum 8 Characters, 1 Uppercase, 1 Lowercase, 1 Number, 1 Special Character')
             return;
         }
