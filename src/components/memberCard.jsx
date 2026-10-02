@@ -1,7 +1,9 @@
-function MemberCard({name, profilePic, memberTag}){
+function MemberCard({name, profilePic, memberTag, onClick}){
     return (
-        <div
-            className="flex items-center justify-between bg-base-100 rounded-xl p-3 hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer"
+        <button
+            type="button"
+            onClick={onClick}
+            className="flex items-center justify-between bg-base-100 rounded-xl p-3 hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer w-full"
         >
             <div className="flex items-center gap-3">
                 <div className="avatar placeholder">
@@ -16,7 +18,7 @@ function MemberCard({name, profilePic, memberTag}){
             <div className="badge badge-primary rounded-lg p-1">
                 {memberTag}
             </div>
-        </div>
+        </button>
     );
 }
 

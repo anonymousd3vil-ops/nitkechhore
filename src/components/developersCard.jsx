@@ -1,6 +1,7 @@
-function DeveloperCard({name, profilePic, tag}){
+function DeveloperCard({name, profilePic, tag, onClick}){
     return (
         <div
+            onClick={onClick}
             className="flex items-center justify-between bg-base-100 rounded-xl p-3 hover:bg-secondary hover:text-white transition-all duration-300 cursor-pointer"
         >
             <div className="flex items-center gap-3">

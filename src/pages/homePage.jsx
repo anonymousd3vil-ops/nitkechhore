@@ -14,6 +14,7 @@ function HomePage(){
     const isLoggedIn = useSelector((state) => state.auth.isLoggedin);
     return (
         <MainLayout>
+            <title>Home | NITKeChhore</title>
             <div className="min-h-screen px-6 md:px-20 py-20">
                 <div className="absolute animate-bounce hidden md:block w-96 h-96 bg-primary/20 rounded-full blur-3xl top-40 -left-10"></div>
                 <div className="absolute animate-bounce hidden md:block w-96 h-96 bg-secondary/20 rounded-full blur-3xl bottom-0 right-0"></div>
